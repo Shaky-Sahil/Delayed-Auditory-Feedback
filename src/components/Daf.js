@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as Tone from 'tone';
 import { BeakerIcon, MicrophoneIcon } from '@heroicons/react/24/solid'
+import './Daf.css'
 const Daf = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [mic, setMic] = useState(null);
@@ -70,7 +71,7 @@ const Daf = () => {
   };
 
   return (
-    <div className='bg-[#8f8e90] text-white w-full h-screen'>
+    <div className='text-white w-full h-screen'>
       <div className='text-center'>
         <h1 className='text-center pt-10 pb-10 font-bold underline'>Delayed Auditory FeedBack</h1>
         
