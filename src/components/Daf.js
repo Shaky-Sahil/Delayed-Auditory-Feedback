@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as Tone from 'tone';
-
+import { BeakerIcon, MicrophoneIcon } from '@heroicons/react/24/solid'
 const Daf = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [mic, setMic] = useState(null);
@@ -70,20 +70,28 @@ const Daf = () => {
   };
 
   return (
-    <div>
-      <button onClick={()=>{
+    <div className='bg-[#8f8e90] text-white w-full h-screen'>
+      <div className='text-center'>
+        <h1 className='text-center pt-10 pb-10 font-bold underline'>Delayed Auditory FeedBack</h1>
+        
+
+        <div className='flex justify-center'>
+        <button className=' flex' onClick={()=>{
         if(micPermission){
           isRecording ? stopRecording() : startRecording()
         }
         else{
           handlePermissions()
         }
-      }
+        }
         }>
-        {isRecording ? 'Stop' : 'Start DAF'}
-      </button>
-      <label>
-        50Ms
+        {isRecording ? <button className='text-center p-3 bg-slate-400 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Stop recording</div></button> : <button className='text-center p-3 bg-slate-600 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Start recording</div></button>}
+        </button>
+        </div>
+
+
+        <label className='flex items-center justify-center'>
+        <p className='mr-3'>50Ms</p>
         <input
           type="range"
           min={0.05}
@@ -92,10 +100,11 @@ const Daf = () => {
           value={delay}
           onChange={handleDelayChange}
         />
-        500Ms
+        <p className='ml-3'>500Ms</p>
       </label>
       <br />
       <output>Current delay is: {delay * 1000}Ms</output>
+      </div>
     </div>
   );
 };
