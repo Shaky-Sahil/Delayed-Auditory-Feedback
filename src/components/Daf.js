@@ -71,10 +71,8 @@ const Daf = () => {
   };
 
   return (
-    <div className='text-white w-full h-screen'>
+    <div className='text-white w-full h-screen flex justify-center items-center'>
       <div className='text-center'>
-        <h1 className='text-center pt-10 pb-10 font-bold underline'>Delayed Auditory FeedBack</h1>
-        
 
         <div className='flex justify-center'>
         <button className=' flex' onClick={()=>{
