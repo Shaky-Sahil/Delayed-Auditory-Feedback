@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import * as Tone from 'tone';
 import { BeakerIcon, MicrophoneIcon } from '@heroicons/react/24/solid'
 import './Daf.css'
+import { Slider } from '@mui/material';
+
 const Daf = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [mic, setMic] = useState(null);
@@ -74,9 +76,9 @@ const Daf = () => {
     <>
     <div className='text-white flex justify-center items-center w-full h-screen text-center'>
 
-      <div>
+      <div className='w-full'>
 
-        <div className='flex pb-3 items-center justify-center'>
+        <div className='flex pb-6 items-center justify-center'>
 
           <button className=' flex' onClick={()=>{
           if(micPermission){
@@ -95,27 +97,40 @@ const Daf = () => {
           </button>
         
         </div>
-
-        <div className='flex items-center mb-6 bg-white text-black p-4 pb-5 rounded-xl justify-center'>
-          <label className='flex items-center justify-center'>
-          <p className='mr-3'>50Ms</p>
-          <input
-            className='slider'
-            type="range"
-            min={0.05}
-            max={0.5}
-            step={0.01}
-            value={delay}
-            onChange={handleDelayChange}
+            <div className='w-[35%] m-auto'>
+          <Slider
+          className='custom-slider'
+          color='sprimary'
+          min={0.05}
+          max={0.5}
+          step={0.01}
+          value={delay}
+          onChange={handleDelayChange}
+          valueLabelDisplay="auto"
+          sx={{
+            '& .MuiSlider-thumb': {
+              borderRadius: '20px',
+              height:'20px',
+            },
+            '& span': {
+              background:"#4f81ca",
+              border:"none",
+            },
+            '& .MuiSlider-valueLabel': {
+              backgroundColor: '#4f81ca',
+              borderRadius: '5px',
+              border: 'none',
+              height: '30px',
+            },
+            '& .MuiSlider-track': {
+              backgroundColor: '#4f81ca',
+              borderRadius: '4px',
+            }
+          }}
           />
-          <p className='ml-3'>500Ms</p>
-          </label>
+          </div>
+        <output className='p-7 italic rounded-xl'>Current delay is: {delay * 1000}Ms</output>
         </div>
-
-        <output className='p-4 italic bg-white rounded-xl text-black'>Current delay is: {delay * 1000}Ms</output>
-
-        </div>
-
       </div>
     </>
   );
