@@ -71,40 +71,53 @@ const Daf = () => {
   };
 
   return (
-    <div className='text-white w-full h-screen flex justify-center items-center'>
-      <div className='text-center'>
+    <>
+    <div className='text-white flex justify-center items-center w-full h-screen text-center'>
 
-        <div className='flex justify-center'>
-        <button className=' flex' onClick={()=>{
-        if(micPermission){
+      <div>
+
+        <div className='flex pb-3 items-center justify-center'>
+
+          <button className=' flex' onClick={()=>{
+          if(micPermission){
           isRecording ? stopRecording() : startRecording()
-        }
-        else{
+          } else{
           handlePermissions()
-        }
-        }
-        }>
-        {isRecording ? <button className='text-center p-3 bg-slate-400 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Stop recording</div></button> : <button className='text-center p-3 bg-slate-600 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Start recording</div></button>}
-        </button>
+          }
+          }
+          }>
+
+          {isRecording ? 
+          <button className='text-center p-3 bg-slate-400 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Stop recording</div></button>
+          : 
+          <button className='text-center p-3 bg-slate-600 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Start recording</div></button>}
+
+          </button>
+        
         </div>
 
+        <div className='flex items-center mb-6 bg-white text-black p-4 pb-5 rounded-xl justify-center'>
+          <label className='flex items-center justify-center'>
+          <p className='mr-3'>50Ms</p>
+          <input
+            className='slider'
+            type="range"
+            min={0.05}
+            max={0.5}
+            step={0.01}
+            value={delay}
+            onChange={handleDelayChange}
+          />
+          <p className='ml-3'>500Ms</p>
+          </label>
+        </div>
 
-        <label className='flex items-center justify-center'>
-        <p className='mr-3'>50Ms</p>
-        <input
-          type="range"
-          min={0.05}
-          max={0.5}
-          step={0.01}
-          value={delay}
-          onChange={handleDelayChange}
-        />
-        <p className='ml-3'>500Ms</p>
-      </label>
-      <br />
-      <output>Current delay is: {delay * 1000}Ms</output>
+        <output className='p-4 italic bg-white rounded-xl text-black'>Current delay is: {delay * 1000}Ms</output>
+
+        </div>
+
       </div>
-    </div>
+    </>
   );
 };
 
