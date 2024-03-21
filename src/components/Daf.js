@@ -81,7 +81,7 @@ const Daf = () => {
 
       <div className='w-full'>
 
-        <div className='flex pb-4 items-center justify-center'>
+        <div className='flex items-center justify-center'>
 
           <button className=' flex' onClick={()=>{
           if(micPermission){
@@ -93,14 +93,14 @@ const Daf = () => {
           }>
 
           {isRecording ? 
-          <button className='text-center p-3 bg-slate-400 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Stop recording</div></button>
+          <button className='text-center p-3 bg-slate-600 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Stop recording</div></button>
           : 
-          <button className='text-center p-3 bg-slate-600 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Start recording</div></button>}
+          <button className='text-center p-3 bg-slate-400 mt-4 mb-4 rounded-xl text-white'><div className='flex items-center text-center'><MicrophoneIcon className='w-5 h-5 mr-3'/> Start recording</div></button>}
 
           </button>
         
         </div>
-            <div className='w-[35%] m-auto'>
+            <div className='w-[40%] m-auto'>
               <p className='flex p-0 m-0'>Delay:</p>
           <Slider
           className='custom-slider'
@@ -110,7 +110,7 @@ const Daf = () => {
           step={0.01}
           value={delay}
           onChange={handleDelayChange}
-          valueLabelDisplay="on"
+          valueLabelDisplay="auto"
           sx={{
             '& .MuiSlider-thumb': {
               borderRadius: '20px',
