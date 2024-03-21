@@ -72,13 +72,16 @@ const Daf = () => {
     }
   };
 
+
+  
+
   return (
     <>
     <div className='text-white flex justify-center items-center w-full h-screen text-center'>
 
       <div className='w-full'>
 
-        <div className='flex pb-6 items-center justify-center'>
+        <div className='flex pb-4 items-center justify-center'>
 
           <button className=' flex' onClick={()=>{
           if(micPermission){
@@ -98,6 +101,7 @@ const Daf = () => {
         
         </div>
             <div className='w-[35%] m-auto'>
+              <p className='flex p-0 m-0'>Delay:</p>
           <Slider
           className='custom-slider'
           color='sprimary'
@@ -106,24 +110,24 @@ const Daf = () => {
           step={0.01}
           value={delay}
           onChange={handleDelayChange}
-          valueLabelDisplay="auto"
+          valueLabelDisplay="on"
           sx={{
             '& .MuiSlider-thumb': {
               borderRadius: '20px',
               height:'20px',
             },
             '& span': {
-              background:"#4f81ca",
+              background:"#c2cccf",
               border:"none",
             },
-            '& .MuiSlider-valueLabel': {
-              backgroundColor: '#4f81ca',
+            '& .MuiSlider-valueLabel': { 
+              color:"black", 
               borderRadius: '5px',
               border: 'none',
               height: '30px',
             },
             '& .MuiSlider-track': {
-              backgroundColor: '#4f81ca',
+              backgroundColor: 'white',
               borderRadius: '4px',
             }
           }}
